@@ -1,5 +1,6 @@
 // import { pointLayers } from "./data.js";
 // const myModule = require('./data.js');
+
 const pointLayers = [
   {lat: 126.978, lng: 37.1},
   {lat: 126.978, lng: 37.2},
@@ -18,12 +19,13 @@ const btn = document.querySelector('.btn');
 btn.textContent = '고 center';
 btn.addEventListener('click', () => {
   setMapCenter(lat, lng);
-  // setCircleLayer(lat, lng);
+  setCircleLayer(lat, lng);
   setPointLayer();
   // setLayersHandler();
   // setMapCenter2();
   // setZoomPlus();
 })
+
 
 
 // Create a map instance
@@ -114,6 +116,9 @@ const pointStyle = new ol.style.Style({
     stroke: new ol.style.Stroke({
       width: 5,
       color: 'rgb(255, 255, 0)'
+    }),
+    fill: new ol.style.Fill({
+      color: 'rgb(255, 255, 0, 0.2)'
     })
   })
 });
@@ -124,7 +129,7 @@ function setMapCenter(centerlat, centerLng) {
   // const newCenter = ol.proj.fromLonLat([centerlat, centerLng]);
   // console.log('newCenter: ', newCenter);
   view.setCenter([centerlat, centerLng]);
-  view.setZoom(15);
+  view.setZoom(10);
   // view.setCenter([0, 0]) // 걍 이렇게 해도 되는듯?
 }
 
